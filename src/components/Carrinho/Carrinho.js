@@ -31,7 +31,9 @@ class Carrinho extends React.Component {
                 <h3>Carrinho:</h3>
                 <ListaCarrinho>
                     {this.props.produtosNoCarrinho.map((produto) => {
-                        return <CardItemCarrinho itemCarrinho={produto}
+                        return <CardItemCarrinho 
+                        key={produto.id} 
+                        itemCarrinho={produto}
                         removerProdutoDoCarrinho={this.props.removerProdutoDoCarrinho}
                         />
                     })}

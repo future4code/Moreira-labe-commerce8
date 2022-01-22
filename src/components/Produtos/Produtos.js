@@ -23,30 +23,25 @@ const GridProdutos = styled.div `
 
 
 export class Produtos extends React.Component {
-    
+
     render(){
     return (
         <ContainerProdutos>
             <HeaderProdutos>
-            <p>Quantidade de produtos: 4</p>
-            <label>Ordenação:
-                <select>
-                    <option>Crescente</option>
-                    <option>Decrescente</option>
-                </select>
-            </label>
+            <p>Quantidade de produtos: {this.props.produtos.length}</p>
+           
             </HeaderProdutos>
             <GridProdutos>
                 {this.props.produtos.map((produto) => {
-                    return <CardProduto produto={produto}
+                    return <CardProduto key={produto.id} produto={produto}
                     adicionarProdutoNoCarrinho={this.props.adicionarProdutoNoCarrinho}
                     />
                 })}
             </GridProdutos>
-            
+
         </ContainerProdutos>
     )
 }
 }
 
-export default Produtos
+export default Produtos 

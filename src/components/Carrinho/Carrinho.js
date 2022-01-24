@@ -5,12 +5,14 @@ import CardItemCarrinho from "./CardItemCarrinho";
 
 const ContainerCarrinho = styled.div `
 padding: 8px;
-border: 1px solid black;
+border: 1px solid white;
+color: white;
 `
 
 const ListaCarrinho = styled.div `
     display: grid;
     gap: 4px;
+    color: white;
 `
 
 class Carrinho extends React.Component {

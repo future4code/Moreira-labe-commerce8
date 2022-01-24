@@ -6,10 +6,11 @@ import Filtro from './components/Filtro/Filtro';
 
 const ContainerApp = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr 60px;
   gap: 20px;
   padding: 16px;
-  height: 50vw;
+  background-color: black;
 `
 
 const ListContainer = styled.div`
@@ -23,60 +24,111 @@ const ListContainer = styled.div`
   }
 `
 
+const Header = styled.div `
+height: 60px;
+grid-column: 1/ -1;
+background-color: #4b2d6d;
+color: white;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding-left: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+border: 1px solid white;
+
+img{
+height: 100%;
+}
+`
+
+const Footer = styled.div `
+height: 60px;
+grid-column: 1/ -1;
+background-color: #4b2d6d;
+color: white;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+border: 1px solid white;
+
+div{
+height: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+div img{
+  height: 60%;
+  margin: 0 6px;
+}
+`
+
+
+const ContainerCentral = styled.div `
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+`
+
+
 
 const produtos = [{
     texto: "Viagem Ida e Volta Para Mercúrio",
     valor: 200000,
     id: 1,
-    imageUrl: "http://s2.glbimg.com/PeU71yjuQ7UAs1xBMi3O3HMX9FA=/s.glbimg.com/jo/g1/f/original/2015/07/16/.jpg_2"
+    imageUrl: "https://i.postimg.cc/nCYHxwYG/mercurio.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Vênus",
     valor: 100000,
     id: 2,
-    imageUrl: "https://s2.glbimg.com/RutUFJYW3TFTcCx6Gp3E5f-vqm8=/e.glbimg.com/og/ed/f/original/2020/10/02/download.jpeg"
+    imageUrl: "https://i.postimg.cc/MvD8Nfqs/venus.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Lua",
     valor: 50000,
     id: 3,
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzav534l1eYUZQh_YSzhkj8stTp6YKIqnj4NJBtD_T2qqOzdMIboDWEhzfeV-sgYig2CU&usqp=CAU"
+    imageUrl: "https://i.postimg.cc/Mv8Wh8RG/lua.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Marte",
     valor: 100000,
     id: 4,
-    imageUrl: "https://s1.static.brasilescola.uol.com.br/be/2021/11/planeta-marte.jpg"
+    imageUrl: "https://i.postimg.cc/RWSvZQg5/marte.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Jupiter",
     valor: 200000,
     id: 5,
-    imageUrl: "https://www.istoedinheiro.com.br/wp-content/uploads/sites/17/2021/12/jupter-1280x720.jpg"
+    imageUrl: "https://i.postimg.cc/V5tfGNJT/jupiter.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Saturno",
     valor: 300000,
     id: 6,
-    imageUrl: "https://exame.com/wp-content/uploads/2020/11/saturno.jpg"
+    imageUrl: "https://i.postimg.cc/QFdr3NMj/saturno.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Urano",
     valor: 400000,
     id: 7,
-    imageUrl: "https://img.olhardigital.com.br/wp-content/uploads/2021/10/planeta-urano-1000x450.jpg"
+    imageUrl: "https://i.postimg.cc/XX9WKDh6/urano.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Netuno",
     valor: 500000,
     id: 8,
-    imageUrl: "https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo_legenda/3fbe97289a4a39391468549c02ef37b9.jpg"
+    imageUrl: "https://i.postimg.cc/87ZNJJYF/netuno.jpg"
 },
 {
     texto: "Viagem Ida e Volta Para Plutão",
     valor: 700000,
     id: 9,
-    imageUrl: "https://conteudo.imguol.com.br/c/noticias/04/2021/12/14/plutao-1639493431655_v2_615x300.jpg"
+    imageUrl: "https://i.postimg.cc/WFkvH91r/plutao.jpg"
 }
 ]
 class App extends React.Component {
@@ -153,6 +205,13 @@ class App extends React.Component {
     }
     render() {
         return <ContainerApp>
+
+            <Header>
+            <h1>ASTROTRAVELS</h1>
+            <img src="https://cdn-icons.flaticon.com/png/512/5113/premium/5113355.png?token=exp=1643038322~hmac=80b4a173fe5dbb951a918386e9865619" alt="" />
+            </Header>
+            
+            <ContainerCentral>
             <Filtro
                 filtrar={this.filtrar}
             />
@@ -164,6 +223,16 @@ class App extends React.Component {
                 produtosNoCarrinho={this.state.produtosNoCarrinho}
                 removerProdutoDoCarrinho={this.removerProdutoDoCarrinho}
             />
+            </ContainerCentral>
+
+            <Footer>
+              <p>Astrotravelscompany Copyright ©  2010-2022 Astrotravels Company S.L. Todos os direitos reservados.</p>
+              <div>
+              <img src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494475.png?token=exp=1643041767~hmac=c198037a3e017a5107a5bf36f5461002" alt="facebook" />
+              <img src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494488.png?token=exp=1643041818~hmac=c67ffb9c34d06b95c10a0d4e1e0349c0" alt="instagram" />
+              <img src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494477.png?token=exp=1643041855~hmac=4310d2981733f8a3338046e58b86bbdd" alt="twitter" />
+              </div>
+        </Footer>
         </ContainerApp>
     }
 }

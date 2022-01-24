@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const ContainerCardProduto = styled.div `
-    border: 1px solid black;
+    border: 2px solid #4b2d6d;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 
     img{
         max-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 `
 
@@ -15,6 +19,7 @@ const CardInfo = styled.div `
     display: flex;
     flex-direction: column;
     padding: 16px;
+    color: white;
 
     p{
         margin: 4px 0;
@@ -24,6 +29,10 @@ const CardInfo = styled.div `
 const BotaoAdicionar = styled.button `
     align-self: center;
     margin-top: 8px;
+    background-color: #4b2d6d;
+    color: white;
+    border-radius: 5px;
+
 `
 
 

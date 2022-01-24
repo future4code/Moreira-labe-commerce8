@@ -3,7 +3,18 @@ import styled from "styled-components";
 
 
 const ContainerFiltro = styled.div`
-border: 1px solid black;
+border: 1px solid white;
+display: flex;
+flex-direction: column;
+padding: 8px;
+
+input{
+    margin: 4px 0
+}
+
+h3 {
+    color: white;
+}
 `
 
 class Filtro extends React.Component {
@@ -11,8 +22,6 @@ class Filtro extends React.Component {
         query: "",
         minPrice: "",
         maxPrice: "",
-        sortingParameter: "title",
-        order: 1
     }
     updateQuery = (ev) => {
         this.setState({
@@ -35,19 +44,6 @@ class Filtro extends React.Component {
         this.filter()
     }
 
-    updateSortingParameter = (ev) => {
-        this.setState({
-            sortingParameter: ev.target.value
-        })
-        this.filter()
-    }
-
-    updateOrder = (ev) => {
-        this.setState({
-            order: ev.target.value
-        })
-        this.filter()
-    }
     filter = () =>{
         this.props.filtrar(
             this.state.query,
@@ -61,8 +57,10 @@ class Filtro extends React.Component {
 
         return (
             <ContainerFiltro>
+
+                <h3>Filtros:</h3>
                 <input
-                    placeholder="Pesquisa"
+                    placeholder="Pesquisa por nome"
                     value={this.state.query}
                     onChange={this.updateQuery}
                 />
@@ -80,28 +78,6 @@ class Filtro extends React.Component {
                     value={this.state.maxPrice}
                     onChange={this.updateMaxPrice}
                 />
-
-                <span>
-                    <label for="sort">Ordenação: </label>
-                    <select
-                        name="sort"
-                        value={this.state.sortingParameter}
-                        onChange={this.updateSortingParameter}
-                    >
-                        <option value="title">Titulo</option>
-                        <option value="price">Preço</option>
-                        
-                    </select>
-                </span>
-
-                <select
-                    name="order"
-                    value={this.state.order}
-                    onChange={this.updateOrder}
-                >
-                    <option value={1}>Crescente</option>
-                    <option value={-1}>Decrescente</option>
-                </select>
 
             </ContainerFiltro>
         )

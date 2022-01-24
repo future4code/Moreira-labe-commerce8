@@ -32,6 +32,13 @@ const GridProdutos = styled.div `
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 16px;
+
+    @media(max-width: 800px) {
+      max-width: 100vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      }
 `
 
 

@@ -5,22 +5,37 @@ import styled from 'styled-components';
 import Filtro from './components/Filtro/Filtro';
 
 const ContainerApp = styled.div`
+max-width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px 1fr 60px;
   gap: 20px;
   padding: 16px;
   background-color: black;
+
+  @media(max-width: 800px) {
+      width: 100vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      
+  }
 `
 
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   flex-wrap:wrap;
   *{
     white-space:nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  @media(max-width: 800px) {
+      max-width: 100vw;
+      height: fit-content;
   }
 `
 
@@ -32,13 +47,25 @@ color: white;
 display: flex;
 flex-direction: row;
 align-items: center;
-padding-left: 20px;
+padding: 0 10px;
 font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 border: 1px solid white;
 
 img{
 height: 100%;
 }
+
+@media(max-width: 800px) {
+      max-width: 100%;
+      height: fit-content;
+
+    
+      
+img{
+    width: 15%;
+}
+
+      }
 `
 
 const Footer = styled.div `
@@ -65,6 +92,25 @@ div img{
   height: 60%;
   margin: 0 6px;
 }
+
+@media(max-width: 800px) {
+      max-width: 100vw;
+      height: fit-content;
+      
+div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div img{
+  height: 60%;
+  width: 25%;
+  margin: 0 6px;
+}
+  }
 `
 
 
@@ -72,6 +118,14 @@ const ContainerCentral = styled.div `
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 20px;
+
+  @media(max-width: 800px) {
+      max-width: 100vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+    }
+
 `
 
 
